@@ -16,6 +16,7 @@ router.get("/instructor/:instructor1", async (req, res) => {
     const query = await docRef.orderBy('instructor').startAt(instructor1).endAt(instructor1 + '\uf8ff').get();
     if (query.empty) {
         res.sendStatus(404)
+        return;
     }
     let data = [];
     query.forEach(doc => {
