@@ -33,6 +33,7 @@ router.get("/result/class", async (req, res) => {
                                 .where('class_section','==',params.class_section).get();
     if (query.empty) {
         res.sendStatus(404)
+        return;
     }
     let data = [];
     query.forEach(doc => {
